@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jesus\\Desktop\\Dev\\pruebaTecnica\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj": {}
+    "C:\\Users\\jesus\\Source\\Repos\\jesusGarciaAtienza99\\asteroidAPI\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jesus\\Desktop\\Dev\\pruebaTecnica\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj": {
+    "C:\\Users\\jesus\\Source\\Repos\\jesusGarciaAtienza99\\asteroidAPI\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jesus\\Desktop\\Dev\\pruebaTecnica\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj",
+        "projectUniqueName": "C:\\Users\\jesus\\Source\\Repos\\jesusGarciaAtienza99\\asteroidAPI\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj",
         "projectName": "asteroidsAPI",
-        "projectPath": "C:\\Users\\jesus\\Desktop\\Dev\\pruebaTecnica\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj",
+        "projectPath": "C:\\Users\\jesus\\Source\\Repos\\jesusGarciaAtienza99\\asteroidAPI\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj",
         "packagesPath": "C:\\Users\\jesus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jesus\\Desktop\\Dev\\pruebaTecnica\\asteroidsAPI\\asteroidsAPI\\obj\\",
+        "outputPath": "C:\\Users\\jesus\\Source\\Repos\\jesusGarciaAtienza99\\asteroidAPI\\asteroidsAPI\\asteroidsAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",

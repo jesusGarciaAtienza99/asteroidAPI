@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ng93lqtna/78MyDwzz+E9/Ayjy6cJNXiMmyOMsZ6CyIdvCCj3893GRKRzpKuMRzCs7Z53a8PlYu06m3fXmtNoQ==",
+  "dgSpecHash": "+WuFsSh0U/k6IwaEXpS/MI1d3M2+JwJ6bDhrxSX1latCoHTeMXyIXzcoGjIDdM6v3Ts5a03qSW1FEhk8TDYaDA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jesus\\Desktop\\Dev\\pruebaTecnica\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj",
+  "projectFilePath": "C:\\Users\\jesus\\Source\\Repos\\jesusGarciaAtienza99\\asteroidAPI\\asteroidsAPI\\asteroidsAPI\\asteroidsAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jesus\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\jesus\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
