@@ -1,5 +1,6 @@
 ﻿using asteroidsAPI.Models.DTO;
-using Microsoft.OpenApi.Services;
+using asteroidsAPI.Models.NasaApiResponse;
+
 
 namespace asteroidsAPI.Helpers
 {
@@ -16,32 +17,53 @@ namespace asteroidsAPI.Helpers
 
         public async Task<List<AsteroidDTO>> getAsteroidsFromNASA(DateTime initDate, DateTime endDate)
         {
-            try
+            
+            using (HttpClient httpClient = new HttpClient())
             {
-                using (HttpClient httpClient = new HttpClient())
+                string url = $"{apiUrl}?start_date={initDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}&api_key={apiKey}";
+
+                var response = await httpClient.GetAsync(new Uri(url));
+
+                if (response.IsSuccessStatusCode)
                 {
-                    string url = $"{apiUrl}?start_date={initDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}&api_key={apiKey}";
-
-                    HttpResponseMessage response = await httpClient.GetAsync(new Uri(url));
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                       
-
-                        return new List<AsteroidDTO>();
-                    }
-                   
-                    return new List<AsteroidDTO>();
-                }
+                    var content = await response.Content.ReadFromJsonAsync<NasaApiResponse>();
+                    return ProcessAsteroidResponse(content);
+                }  
             }
-            catch(Exception ex)
-            {
-                return new List<AsteroidDTO>();
-            }
-          
+
+            return new List<AsteroidDTO>();
         }
 
-       
+        private List<AsteroidDTO> ProcessAsteroidResponse(NasaApiResponse response)
+        {
+            var topAsteroids = new List<AsteroidDTO>();
+
+           
+            var biggestAsteroids = response.near_earth_objects
+                .SelectMany(x => x.Value)
+                .Where(x => x.is_potentially_hazardous_asteroid)
+                .OrderByDescending(asteroid => calulateAverageSize(asteroid))
+                .Take(3);
+
+            foreach (var asteroid in biggestAsteroids)
+            {                
+                topAsteroids.Add(new AsteroidDTO
+                {
+                    name = asteroid.name,
+                    diameter = calulateAverageSize(asteroid),
+                    velocity = asteroid.close_approach_data[0].relative_velocity.kilometers_per_hour,
+                    date = DateTime.Parse(asteroid.close_approach_data[0].close_approach_date),
+                    planet = asteroid.close_approach_data[0].orbiting_body
+                });
+            }
+
+            return topAsteroids;
+        }
+
+        private double calulateAverageSize(Asteroid asteroid)
+        {
+            return (asteroid.estimated_diameter.kilometers.estimated_diameter_max + asteroid.estimated_diameter.kilometers.estimated_diameter_min) / 2;
+        }
 
     }
 }

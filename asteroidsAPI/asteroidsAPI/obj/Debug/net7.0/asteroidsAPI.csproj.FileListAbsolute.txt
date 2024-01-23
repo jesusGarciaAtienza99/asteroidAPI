@@ -31,3 +31,4 @@ C:\Users\jesus\Source\Repos\jesusGarciaAtienza99\asteroidAPI\asteroidsAPI\astero
 C:\Users\jesus\Source\Repos\jesusGarciaAtienza99\asteroidAPI\asteroidsAPI\asteroidsAPI\obj\Debug\net7.0\asteroidsAPI.pdb
 C:\Users\jesus\Source\Repos\jesusGarciaAtienza99\asteroidAPI\asteroidsAPI\asteroidsAPI\obj\Debug\net7.0\asteroidsAPI.genruntimeconfig.cache
 C:\Users\jesus\Source\Repos\jesusGarciaAtienza99\asteroidAPI\asteroidsAPI\asteroidsAPI\obj\Debug\net7.0\ref\asteroidsAPI.dll
+C:\Users\jesus\Source\Repos\jesusGarciaAtienza99\asteroidAPI\asteroidsAPI\asteroidsAPI\bin\Debug\net7.0\Newtonsoft.Json.dll

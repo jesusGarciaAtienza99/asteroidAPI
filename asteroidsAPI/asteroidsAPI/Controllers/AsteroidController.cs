@@ -3,6 +3,8 @@ using asteroidsAPI.Models;
 using asteroidsAPI.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace asteroidsAPI.Controllers
 {
@@ -23,22 +25,21 @@ namespace asteroidsAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAsteroids([FromQuery] int days)
+        public async Task<IActionResult> GetAsteroids([FromQuery, Required, Range(1, 7)] int days)
         {
-            //if(days == null)
-            //    return BadRequest("The days parameter is required");
-            if (days<1 || days > 7)
-            {
-                return BadRequest("The days parameter must be a value included in 1 and 7");
-            }
-
+            
             DateTime initDate = DateTime.Now;
             DateTime endDate = initDate.AddDays(days);
 
-            List<AsteroidDTO> asteroids = await helper.getAsteroidsFromNASA(initDate, endDate);
-
-            return Ok(asteroids);
-
+            try
+            {
+                List<AsteroidDTO> asteroids = await helper.getAsteroidsFromNASA(initDate, endDate);
+                return Ok(asteroids);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }  
         }
 
       
