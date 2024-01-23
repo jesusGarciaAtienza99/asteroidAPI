@@ -17,10 +17,10 @@ namespace asteroidsAPI.Helpers
 
         public async Task<List<AsteroidDTO>> getAsteroidsFromNASA(DateTime initDate, DateTime endDate)
         {
-            
+            string url = $"{apiUrl}?start_date={initDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}&api_key={apiKey}";
+
             using (HttpClient httpClient = new HttpClient())
-            {
-                string url = $"{apiUrl}?start_date={initDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}&api_key={apiKey}";
+            {              
 
                 var response = await httpClient.GetAsync(new Uri(url));
 
@@ -29,9 +29,10 @@ namespace asteroidsAPI.Helpers
                     var content = await response.Content.ReadFromJsonAsync<NasaApiResponse>();
                     return ProcessAsteroidResponse(content);
                 }  
+                
             }
 
-            return new List<AsteroidDTO>();
+            throw new Exception($"Unable to get a valid response form {url}");
         }
 
         private List<AsteroidDTO> ProcessAsteroidResponse(NasaApiResponse response)
